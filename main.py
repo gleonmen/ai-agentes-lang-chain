@@ -37,6 +37,7 @@ def mostrar_menu():
     print("  B. Agente con Histórico de Conversación (PostgreSQL)")
     print("  C. Agente con Base de Conocimiento (RAG + Tool)")
     print("  D. Agente Completo (RAG + Internet + Memoria)")
+    print("  E. Agente SDD (RAG + Internet + Memoria)")
     print("\n  0. Salir")
     print("-" * 60)
 
@@ -47,7 +48,7 @@ def main():
         mostrar_menu()
         
         try:
-            opcion = input("\nSelecciona un agente (A/B/C/D o 0): ").strip().upper()
+            opcion = input("\nSelecciona un agente (A/B/C/D/E o 0): ").strip().upper()
             
             if opcion == "0":
                 print("\n¡Hasta luego! 👋\n")
@@ -77,7 +78,12 @@ def main():
                     "agente_basico_hc_bc_toolexterna.py"
                 )
                 modulo.main()
-            
+            elif opcion == "E":
+                modulo = cargar_modulo(
+                    "Agente-Basico-E-con-BC-HC-ToolExterna", 
+                    "agente_basico_sdd.py"
+                )
+                modulo.main()     
             else:
                 print("\n❌ Opción no válida. Intenta de nuevo.\n")
         
